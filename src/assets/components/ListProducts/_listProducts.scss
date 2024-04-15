@@ -1,0 +1,193 @@
+@import "../../styles/defalutMixins.scss";
+
+$list-head-bg: rgb(54, 53, 53);
+
+@mixin list-container-basic {
+    @include justifySpace-EvenlyAlignCenter;
+    gap: 1rem;
+    padding: 3px 10px;
+}
+
+
+
+.list-container-wrapper {
+    margin:10px;
+    @include alignCenter;
+    flex-direction: column;
+    width: 100%;
+
+
+    .head {
+        background-color: $list-head-bg;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        &:hover{
+            background-color:  $list-head-bg !important;
+            padding:0px !important;
+        }
+    }
+
+    .list-container-item {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-column-gap: 10px;
+        margin: 10px;
+        width: 100%;
+
+        img {
+            height: 90px;
+            min-width: 90px;
+            object-fit: contain;
+            @include alignCenter;
+        }
+
+        .list-item {
+            padding: 10px;
+            min-width: 100px;
+            width: 60%;
+            @include displayflex;
+            @include fontS16B400;
+        }
+
+        .modify {
+            display: flex;
+            gap: 1rem;
+            min-width: 150px;
+
+            .edit-btn {
+                @include submit-icon(#337AB7, #0659a2);
+            }
+
+            .delete-btn {
+                @include submit-icon(#DC4A37, #b91e09);
+            }
+        }
+        &:hover{
+            background-color: rgb(237, 235, 235);
+            padding: 3px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
+
+
+
+
+
+
+@media only screen and (max-width:1240px) {
+    .list-container-wrapper {
+        .list-container-item {
+            .display1 {
+                display: none;
+            }
+            .modify{
+                padding-left: 2rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:1100px) {
+    .list-container-wrapper {
+        .list-container-item {
+            .display2 {
+                display: none;
+            }
+            
+        }
+    }
+}
+
+@media only screen and (max-width:1010px) {
+    .list-container-wrapper {
+        .list-container-item {
+            .display3 {
+                display: none;
+            }  
+        }
+    }
+}
+
+@media only screen and (max-width:870px) {
+    .list-container-wrapper {
+        .list-container-item {
+            .list-item {
+                min-width: 90px;
+            }
+
+            .modify {
+                min-width: 150px
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:790px) {
+    .list-container-wrapper {
+        .list-container-item {
+            .list-item {
+                min-width: 70px;
+            }
+            .modify{
+                padding-left: 5rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:574px) {
+    .list-container-wrapper {
+        .list-container-item {
+            .list-item {
+                min-width: 60px;
+            }
+
+            .display4 {
+                display: none;
+            }
+
+            .modify {
+                min-width: 140px
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:466px) {
+    .list-container-wrapper {
+        .list-container-item {
+            .list-item {
+                width: 100%;
+                flex-wrap: wrap;
+                min-width: 40px;
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:424px) {
+    .list-container-wrapper {
+        .list-container-item {
+            .display5 {
+                display: none;
+            }
+            .display6{
+                padding-left: 2.4rem;
+            }
+        }
+    }
+}
+@media only screen and (max-width:366px) {
+    .list-container-wrapper {
+        .list-container-item {
+            .display6{
+                display: none;
+            }
+        }
+    }
+}

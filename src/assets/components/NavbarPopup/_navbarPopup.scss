@@ -1,0 +1,74 @@
+@import "../../styles/defalutMixins.scss";
+
+.popup-navbar {
+    .menu-icons-container {
+        margin-top: 6rem;
+        background-color: purple;
+        color: white;
+        padding: 0.5rem 0;
+        width: 100%;
+
+        .menu {
+            .content {
+                margin: 0px 1rem;
+                @include fontS16B700;
+                cursor: pointer;
+                padding: 10px;
+
+                .icon-style {
+                    width: 20px;
+                    padding-right: 1rem;
+                }
+
+                &:hover {
+                    color: purple;
+                    background-color: white;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+@media only screen and (min-width:910px) {
+        .popup-navbar {
+            display: none;
+        }
+    }
+
+
+@media only screen and (max-width:910px) {
+        .popup-navbar {
+            display: contents;
+        }
+    }
+
+
+@media only screen and (min-width:370px) {
+        .popup-navbar {
+            .menu-icons-container {
+                .menu {
+                    .search-content {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+
+@media only screen and (max-width:370px) {
+        .popup-navbar {
+            .menu-icons-container {
+                .menu {
+                    .search-content {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }

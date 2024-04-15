@@ -1,0 +1,115 @@
+@import "../../styles/defalutMixins.scss";
+
+$border: 2px solid #ededed;
+$box-shadow:rgba(0, 0, 0, 0.378) 10px 15px 36px -28px inset;
+$bg:#f0efef42;
+.product-card-wrapper {
+    .product-card {
+        $s20:20px;
+        margin: $s20;
+        border: $border;
+        padding: $s20;
+        cursor: pointer;
+        min-height: 560px;
+        width: 330px;
+        background: $bg;
+
+        &:hover {
+            box-shadow: $box-shadow;
+        }
+
+        &__img {
+            height: 300px;
+            width: 100%;
+
+            img {
+                @include max-ht-wt;
+                object-fit: contain;
+            }
+        }
+
+        &__contents {
+            .product {
+                &__brand {
+                    @include fontS14B700;
+                    text-align: center;
+                    padding-top: 1rem;
+                }
+
+                .ratings {
+                    display: flex;
+                    @include displayflex;
+                    width: 100%;
+                    gap: 15px;
+
+                    &__count {
+                        @include displayflex;
+                    }
+
+                    &__length {
+                        color: purple;
+                        font-size: 14px;
+                    }
+                }
+
+                .price {
+                    @include displayflex;
+                    gap: 10px;
+                    padding-top: 1rem;
+
+                    &__correct {
+                        font-size: 20px;
+
+                        .rupee::before {
+                            content: "\20B9";
+                        }
+                    }
+
+                    &__original {
+                        font-size: 14px;
+                        color: gray;
+                    }
+
+                    &__discount {
+                        font-size: 15px;
+                    }
+                }
+
+                .reels-description {
+                    margin: 1rem;
+                    height: 20px;
+                    cursor: pointer;
+                    position: relative;
+                    overflow-x: hidden;
+
+                    .description {
+                        font-size: 14px;
+                        text-align: center;
+                    }
+
+                    .more {
+                        font-size: 14px;
+                        color: rgb(0, 0, 0);
+                        position: absolute;
+                        right: -0px;
+                    }
+                }
+
+                &__delivery {
+                    @include fontS13B500;
+                    text-align: center;
+                    padding-top: 1rem;
+
+                    .free-txt {
+                        padding-right: .4rem;
+                        font-weight: bolder
+                    }
+                }
+            }
+        }
+        @media only screen and (max-width:400px) {
+            width: auto;
+            margin: 20px 0 0;
+        }
+    }
+}

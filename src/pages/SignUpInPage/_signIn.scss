@@ -1,0 +1,73 @@
+@import "../../assets/styles/defalutMixins.scss";
+
+.signin {
+    min-height: 500px;
+    height: 50%;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    display: flex;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    &__left {
+        width: 50%;
+        background-color: aliceblue;
+        @include justifyCenter;
+
+        .signin-container {
+            padding-top: 5rem;
+
+            .signin-logo {
+                height: 50px;
+                @include displayflex;
+                width: 100%;
+
+                img {
+                    height: 50px;
+                }
+            }
+
+            .signin-btn {
+                margin-top: 6rem;
+                @include btnBasic;
+                @include primaryBlueBgColor;
+                color:white;
+                @include alignCenter;
+                gap: 1.25rem;
+                padding: 0.5rem 3rem 0.5rem 0.5rem;
+                border-radius: 5px;
+            }
+
+        }
+    }
+
+    &__right {
+        width: 50%;
+        @include displayflex;
+
+        img {
+            object-fit: cover;
+            @include max-ht-wt;
+        }
+    }
+}
+
+@media only screen and (max-width:1200px) {
+    .signin {
+        height: 100%;
+        width: 70%;
+        justify-content: center;
+        margin-top: 3rem;
+
+        &__left {
+            height: 100%;
+            width: 100%;
+            min-height: 500px;
+            margin: 5px;
+        }
+
+        &__right {
+            display: none;
+        }
+    }
+}

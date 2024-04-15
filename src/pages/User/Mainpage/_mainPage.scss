@@ -1,0 +1,10 @@
+@import "../../../assets/styles/defalutMixins.scss";
+
+.homepage {
+   @include max-ht-wt;
+    overflow-x: hidden;
+
+    .outlet-container {
+        min-height: 100vh;
+    }
+}

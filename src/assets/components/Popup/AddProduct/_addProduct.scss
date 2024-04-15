@@ -1,0 +1,198 @@
+@import "../../../styles/defalutMixins.scss";
+
+$border-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+@mixin inputCommon {
+    @include fontS16B400;
+    padding: 0.5rem;
+    width: 100%;
+    @include inputBasic;
+    border-radius: 5px;
+    border: 1px solid gray;
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    }
+}
+
+.add {
+    &__title {
+        text-align: center;
+        @include fontS24B700;
+        padding-top: 1rem;
+    }
+
+    .form {
+        margin: 2rem;
+        padding: 2rem;
+        box-shadow: $border-shadow;
+
+        &__fields {
+            @include alignCenter;
+            gap: 1rem;
+            padding: 1rem 0;
+
+            p {
+                width: 30%;
+                @include fontS16B700;
+            }
+
+            input {
+                @include inputCommon;
+            }
+
+            textarea {
+                @include inputCommon;
+            }
+
+            .category-container {
+                width: 100%;
+
+                .category-active {
+                    color: black !important;
+                }
+
+                .category {
+                    width: 100%;
+                    cursor: pointer;
+                    border: 1px solid gray;
+                    padding: 5px 1rem;
+                    @include fontS14B700;
+                    color: gray;
+                    border-radius: 5px;
+                    @include displayflex;
+                    gap: 0.5rem;
+
+                    &:hover {
+                        color: rgb(63, 62, 62);
+                        box-shadow: rgba(217, 217, 217, 0.25) 0px 30px 60px -12px inset, rgba(235, 234, 234, 0.3) 0px 18px 36px -18px inset;
+                    }
+                }
+            }
+
+            .category-options {
+                width: 55%;
+                z-index: 2;
+                position: absolute;
+                top: 10rem;
+                
+                border-radius: 5px;
+                border: 1px solid gray;
+                margin-top: 0.5rem;
+                background-color: white;
+                right: 4rem;
+
+                .options {
+                    width: 100%;
+                    cursor: pointer;
+                    margin: 0;
+                    padding: 0.3rem 0 0.3rem 1rem;
+                    @include fontS16B400;
+
+                    &:hover {
+                        background: purple;
+                        color: white;
+                    }
+                }
+                @media only screen and (max-width:360px) {
+                    top:7rem !important;
+                    right: 1rem;
+                }
+                @media only screen and (max-width:500px) {
+                    top:6rem;
+                }
+                @media only screen and (max-width:590px) {
+                    width:40%;
+                }
+                @media only screen and (min-width:590px) {
+                    width:50%;
+                }
+                @media only screen and (min-width:870px) {
+                    width:55%;
+                }
+                @media only screen and (min-width:970px) {
+                    width:60%
+                }
+                @media only screen and (min-width:1320px) {
+                    width:65%
+                }
+                @media only screen and (min-width:1997px) {
+                    width:69%
+                }
+            }
+
+            .image-field-wrapper {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                .image-field {
+                    padding-bottom: 10px;
+
+                    input {
+                        @include inputCommon;
+                    }
+                }
+
+                .add-icon {
+                    @include add-icon;
+                }
+            }
+        }
+
+        .submit-btn {
+            width: 100%;
+            @include displayflex;
+            padding-top: 1rem;
+
+            .submit-icon {
+                @include submit-icon(#1da661, #057c41);
+            }
+        }
+    }
+}
+
+
+
+
+
+
+@media only screen and (max-width:500px) {
+    .add {
+        .form {
+            margin: 0rem;
+            padding: 0rem 10px;
+            box-shadow: none;
+
+            &__fields {
+                gap: 0.5rem;
+                padding: 1rem 0;
+
+                p {
+                    @include fontS12B700;
+                    width: 50%;
+                }
+
+                input {
+                    @include fontS12B400;
+                }
+
+                textarea {
+                    @include fontS12B400;
+                }
+
+                .image-field-wrapper {
+                    .image-field {
+                        input {
+                            @include fontS12B700;
+                        }
+                    }
+
+                    .add-icon {
+                        @include fontS10B700;
+                    }
+                }
+            }
+        }
+    }
+}

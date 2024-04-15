@@ -1,0 +1,38 @@
+1 scss
+2 react-router-dom
+3 firebase
+ npm install -g firebase-tools
+ firebase login
+ firebase init
+ firebase deploy
+4 redux
+5 react-redux
+6 redux-persist
+7 fontawesome solid and regular
+npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-regular-svg-icons @fortawesome/react-fontawesome
+npm install --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+
+
+
+
+// const handleReviewChange = (e) => {
+//     const { name, value } = e.target
+//     setFormData(prevState => ({
+//         ...prevState,
+//         review: {
+//             ...prevState.review,
+//             [name]: value
+//         }
+//     }))
+// }
+
+
+
+{/* <div className='form__fields'>
+                    <p>Review :</p>
+                    <input type="text" name="username" placeholder="Name" value={formData.review.username} onChange={handleReviewChange} />
+                    <input type="number" name="ratingCount" placeholder="Name" value={formData.review.ratingCount} onChange={handleReviewChange} />
+                    <input type="text" name="title" placeholder="Name" value={formData.review.title} onChange={handleReviewChange} />
+                    <textarea name="review" placeholder="description" value={formData.review.description} onChange={handleReviewChange}></textarea>
+                    <input type="date" name="date" placeholder="Name" value={formData.review.date} onChange={handleReviewChange} />
+                </div> */}

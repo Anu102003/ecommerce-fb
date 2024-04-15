@@ -1,0 +1,228 @@
+@import "../../../assets/styles/defalutMixins.scss";
+
+
+$search-bg: rgba(239, 238, 238, 0.8901960784);
+$search-border: 1px solid rgb(235, 234, 234);
+$search-hover-bg: rgba(255, 255, 255, 0.9568627451);
+$search-hover-box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+$sidebar-border: 2px solid #e5e5e5;
+$logout-btn-hover: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+$content-active-bg: rgb(143, 30, 143);
+$search-txt-colour: rgb(62, 61, 61);
+
+.sidebar {
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    background-color: black;
+    border-right: $sidebar-border ;
+
+    &__logo {
+        cursor: pointer;
+        @include displayflex;
+        padding: 1rem 0 0.5rem;
+
+        img {
+            height: 50px;
+        }
+    }
+
+    &__menu {
+        @include max-ht-wt;
+        padding: 1rem 0.5rem;
+
+        .content {
+            color: black;
+            margin: 1rem 1rem 1.5rem;
+            padding: 1rem;
+            background: $search-bg;
+            border-radius: 15px;
+            @include fontS16B700;
+            cursor: pointer;
+            position: relative;
+
+            &:hover {
+                color: white;
+                background-color: purple;
+            }
+        }
+
+        .active {
+            color: white;
+            background-color: $content-active-bg ;
+
+            &:hover {
+                background-color: $content-active-bg;
+            }
+        }
+    }
+}
+
+.sidebar-left {
+    margin-left: 20%;
+
+    .search-logout-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+        border-bottom: $sidebar-border ;
+
+        .search {
+            @include alignCenter;
+            width: 50%;
+            margin: 0px 1rem;
+            position: relative;
+
+            .search-icon {
+                position: absolute;
+                left: 10px;
+            }
+
+            input {
+                width: 100%;
+                height: 35px;
+                @include inputBasic;
+                border-radius: 5px;
+                border: $search-border;
+                padding: 4px 5px 4px 2.3rem;
+                color: $search-txt-colour;
+                background: $search-bg;
+                @include fontS15B500;
+            }
+
+            input:hover {
+                background-color: $search-hover-bg;
+                box-shadow: $search-hover-box-shadow;
+            }
+        }
+
+        .profile-logout-wrapper {
+            @include displayflex;
+            gap: 2rem;
+
+            .select-language {
+                border: 1px solid black;
+                border-radius: 10px;
+                
+                &__select {
+                    padding: 0.3rem 0.8rem;
+                    background-color: transparent;
+                    @include inputBasic;
+                    @include fontS16B400;
+                }
+                &__option{
+                    background: white; 
+                    color: black;   
+                    &:checked{
+                        background: purple;
+                        color: white;
+                    }
+                }
+
+            }
+
+            .profile-img {
+                cursor: pointer;
+
+                img {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                }
+            }
+
+            .logout-btn {
+                position: relative;
+                background-color: purple;
+                margin-right: 1rem;
+                @include btnBasic;
+                padding: 0.9rem 2rem 0.9rem 3rem;
+                border-radius: 25px;
+                color: white;
+
+                .logout-icon {
+                    position: absolute;
+                    left: 1.2rem;
+                }
+
+                button {
+                    background-color: transparent;
+                    color: inherit;
+                    @include fontS14B700;
+                }
+
+
+                &:hover {
+                    box-shadow: $logout-btn-hover;
+                }
+            }
+        }
+
+        .more-icon-wrapper {
+            padding: 7px;
+            margin-left: 1rem;
+            cursor: pointer;
+
+            &:hover {
+                border: 2px solid purple;
+                border-radius: 5px;
+            }
+
+            .more-icon-enable {
+                border-radius: 5px;
+                background-color: purple;
+                color: white;
+            }
+        }
+    }
+}
+
+
+
+
+
+@media only screen and (max-width:1000px) {
+    .sidebar {
+        &__logo {
+            img {
+                height: 40px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:730px) {
+    .sidebar-left {
+        .search-logout-container {
+            .more-icon-wrapper {
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:770px) {
+    .sidebar-left {
+        margin-left: 0;
+
+        .search-logout-container {
+            .more-icon-wrapper {
+                display: block;
+            }
+
+            .profile-logout-wrapper {
+                .profile-img {
+                    display: none;
+                }
+
+                .logout-btn {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .sidebar {
+        display: none;
+    }
+}

@@ -1,0 +1,298 @@
+@import "../../../assets/styles/defalutMixins.scss";
+
+
+$search-bg: rgba(239, 238, 238, 0.8901960784);
+$search-border: 1px solid rgb(235, 234, 234);
+$search-hover-bg: rgba(255, 255, 255, 0.9568627451);
+$search-hover-box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+$navbar-border: 1px solid #e5e5e5;
+$logout-btn-hover: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+$search-txt-colour: rgb(62, 61, 61);
+
+.navbar {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 0.1fr 2fr 0.1fr;
+    align-items: center;
+    width: 100%;
+    border-bottom: $navbar-border ;
+    background-color: rgb(243, 243, 247);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+
+    &__logo {
+        cursor: pointer;
+
+        img {
+            height: 50px;
+        }
+    }
+
+    &__contents {
+        display: flex;
+
+        .more-icon-wrapper {
+            padding: 7px;
+            margin-left: 1rem;
+            cursor: pointer;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 5px;
+color: purple;
+            &:hover{
+                border: none;
+                border: 2px solid purple;
+                color: black !important;
+                border-radius: 5px;
+            }
+            .more-icon-enable{
+                border-radius: 5px;
+                background-color: purple;
+                color: white;
+            }
+        }
+        .menu-icons-container {
+            width: 100%;
+            @include justifySpace-BwtAlignCenter;
+
+            .menu {
+                display: flex;
+
+                .content {
+                    margin: 0px 1rem;
+                    @include fontS16B700;
+                    cursor: pointer;
+                    position: relative;
+
+                    &:hover {
+                        color: purple;
+                    }
+                    .nav-menu-hr{
+                        position: absolute;
+                        bottom:-1rem;
+                        height: 3px;
+                        width: 100%;
+                        background-color: purple;
+                    }
+                }
+            }
+
+
+        }
+
+        .search {
+            @include alignCenter;
+            width: 100%;
+            margin: 0px 1rem;
+            position: relative;
+
+            .search-icon {
+                position: absolute;
+                left: 10px;
+            }
+
+            input {
+                width: 100%;
+                height: 35px;
+                @include inputBasic;
+                border-radius: 5px;
+                border: $search-border;
+                padding: 4px 5px 4px 2.3rem;
+                color: $search-txt-colour;
+                background: $search-bg;
+                @include fontS15B500;
+            }
+
+            input:hover {
+                background-color: $search-hover-bg;
+                box-shadow: $search-hover-box-shadow;
+            }
+        } 
+
+        .select-language {
+            border: 1px solid black;
+            border-radius: 10px;
+            height: 36px;
+            margin: 10px 10px 10px 0;
+            
+            &__select {
+                padding: 0.5rem 0.8rem 0.5rem 0.5rem;
+                background-color: transparent;
+                @include inputBasic;
+                @include fontS12B700;
+            }
+            &__option{
+                background: white; 
+                color: black;   
+                &:checked{
+                    background: purple;
+                    color: white;
+                }
+            }
+
+        }
+    }
+
+    &__logout-btn {
+        position: relative;
+        background-color: purple;
+        @include btnBasic;
+        padding: 0.9rem 2rem 0.9rem 3rem;
+        border-radius: 25px;
+        color: white;
+
+        .logout-icon {
+            position: absolute;
+            left: 1.2rem;
+        }
+
+        button {
+            background-color: transparent;
+            color: inherit;
+            @include fontS14B700;
+        }
+
+
+        &:hover {
+            box-shadow: $logout-btn-hover;
+        }
+    }
+}
+
+
+
+
+
+
+// media queries
+
+@media only screen and (min-width:1740px) {
+    .navbar {
+        &__contents {
+            .search {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:1240px) {
+    .navbar {
+        &__logout-btn {
+            display: none;
+        }
+
+        &__contents {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width:1240px) {
+    .navbar {
+        &__logout-btn {
+            display: block;
+        }
+
+        &__contents {
+            .search {
+                width: 40%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:1230px) {
+    .navbar {
+
+        &__contents {
+
+            .menu-icons-container {
+                gap: 3rem;
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:1130px) {
+    .navbar {
+
+        &__contents {
+
+            .menu-icons-container {
+
+                .menu {
+                    .content {
+                        margin: 0 .5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    .navbar {
+        &__contents {
+
+            .menu-icons-container {
+                gap: 0.7rem;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:910px) {
+    .navbar {
+        &__contents {
+            .more-icon-wrapper {
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:910px) {
+    .navbar {
+        &__contents {
+            align-items: center;
+
+            .more-icon-wrapper {
+                display:block;
+            }
+
+            .menu-icons-container {
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:850px) {
+    .navbar {
+        &__contents {
+            gap: 0.5rem;
+            margin: 0 0rem 0 0.5rem;
+
+            .search {
+                margin: 0 1rem 0 0.5rem;
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:370px) {
+    .navbar {
+        &__contents {
+            margin: 0;
+            @include displayflex;
+
+            .search {
+                display: none;
+            }
+        }
+    }
+}

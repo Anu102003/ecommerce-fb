@@ -1,0 +1,113 @@
+@import "../../styles/defalutMixins.scss";
+
+@mixin img {
+    object-fit: contain;
+    @include max-ht-wt;
+    border-radius: 10px;
+}
+
+@mixin btn($bg) {
+    cursor: pointer;
+    font-size: 18px;
+    width: 200px;
+    color: white;
+    height: 3rem;
+    background-color: $bg;
+}
+
+.single-product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 0rem 3rem;
+    height: 100%;
+
+    .d-1 {
+        padding: 2rem 0;
+        width: 100%;
+        @include justifyCenter;
+
+        .d-11 {
+            position: fixed;
+
+            .image-lists {
+                gap: 1rem;
+                width: 100%;
+
+                .scrollmenu {
+                    max-width: 470px;
+                    overflow-x: scroll;
+                    white-space: nowrap;
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+
+                .product-img {
+                    display: inline-block;
+                    height: 80px;
+                    cursor: pointer;
+                    margin: 0 1rem;
+
+                    img {
+                        @include img;
+                    }
+
+                }
+
+                .active {
+                    border: 2px solid purple;
+                    border-radius: 10px;
+                }
+            }
+        }
+
+        .d-12 {
+            position: fixed;
+            margin-top: 7rem;
+
+            .p-img {
+                img {
+                    @include img;
+                }
+
+                @media only screen and (max-width:1480px) {
+                    height: 450px;
+                }
+            }
+        }
+    }
+
+    .d-2 {
+        width: 100%;
+
+        .btn {
+            padding-top: 2rem;
+            position: fixed;
+            z-index: 2;
+            width: 45%;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-between;
+
+            .cart-btn {
+               @include btn(#FF9F00);
+            }
+
+            .buy-btn {
+              @include btn(#FB641B);
+            }
+
+        }
+
+        .details {
+            margin-top: 7rem;
+            .title{
+                font-size: 18px;
+                font-weight: 700;
+            }
+        }
+    }
+
+}
